@@ -1,0 +1,3 @@
+<%= form_for current_user.reverse_subscriptions.find_by(author_id: auth.id), :html => {method: :delete}, remote: true do |f| %>
+	<%= f.submit "Unsubscribe", class: 'button radius tiny' %>
+<% end %>

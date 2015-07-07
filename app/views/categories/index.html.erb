@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <% @categories.each do |category| %>
+      <h4 class="text-center">
+        <%= link_to category.name, category %>
+      </h4>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<h3 class="text-center">Sign up with email</h3>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert">
+      <p><%= pluralize(@user.errors.count, 'error') %></p>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :username, placeholder: 'Username' %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.email_field :email, placeholder: 'Email' %>
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <div class="text-right">
+    <%= f.submit 'Sign up', class: 'button tiny' %>
+  </div>
+<% end %>
+<p class="text-center">
+  By signing up, I accept Storyhoot's 
+  <%= link_to 'terms of use', '#' %> and
+  <%= link_to 'privacy policy.', '#' %>
+</p>
+
+<div class="text-center" id="external-account-login-container">
+  <%= link_to auth_at_provider_path(:provider => :facebook) do %>
+    <span>
+      You can also connect with
+      <br>
+      <i class="fi-social-facebook"></i>
+    </span>
+  <% end %>
+</div>
+
+<br>

@@ -1,0 +1,26 @@
+<h3 class="text-center">Log in with email</h3>
+<%= form_tag sessions_path, :method => :post do %>
+	<%= text_field_tag :username_or_email, nil, placeholder: "Username or Email" %>
+	<%= password_field_tag :password, nil,  placeholder: "Password" %>
+  <!--
+  <div class="text-left">
+    <%= check_box_tag :remember_me, class: 'left' %>
+    <%= label_tag :remember_me, 'Remember me' %>
+  </div>
+  -->
+  <div class="text-right">
+	  <%= submit_tag "Log In", class: 'button tiny' %>
+  </div>
+<% end %>
+
+<div class="text-center" id="external-account-login-container">
+  <%= link_to auth_at_provider_path(:provider => :facebook) do %>
+    <span>
+      You can also connect with
+      <br>
+      <i class="fi-social-facebook"></i>
+    </span>
+  <% end %>
+</div>
+
+<br>

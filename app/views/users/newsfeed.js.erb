@@ -1,0 +1,7 @@
+$('#feed-content').append('<%= escape_javascript( render(partial: 'shared/feed_item', collection: @feed_items) ) %>');
+<% if @feed_items.next_page %>
+  $('.pagination').replaceWith('<%= escape_javascript( will_paginate(@feed_items) ) %>');
+<% else %>
+  $('.pagination').text('No more stories to show');
+<% end %>
+<% sleep 1 %>

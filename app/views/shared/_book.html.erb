@@ -1,0 +1,20 @@
+<div class="row panel">
+  <div class="large-2 medium-2 small-4 columns">
+    <%= link_to image_tag(book.cover.url(:thumb)), book %>
+  </div>
+  <div class="large-10 medium-10 small-8 columns">
+    <h4>
+      <%= link_to book do %>
+         <span><small><i class="fi-heart"></i> <%= book.get_likes.size %></small></span>
+         <span><small><i class="fi-eye large"></i> <%= book.impressionist_count %></small></span>
+         <%= book.title %>
+      <% end %>
+    </h4>
+    <h4>
+      <small>
+      by <%= link_to "@#{book.user.username}", user_path(book.user.username) %>,
+      <%= time_ago_in_words book.created_at %> ago
+      </small>
+    </h4>
+  </div>
+</div>

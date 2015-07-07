@@ -1,0 +1,191 @@
+.gif-maker-option {
+  width: 100%;
+  padding-top: 5%;
+  a.button {
+    width: 100%;
+    padding: 20px;
+    height: 60px;
+  }
+}
+
+#new-gif-page {
+  padding: 10%;
+  i {
+    font-size: 10rem;
+  }
+}
+
+body#gif-maker-body {
+  background: #273A4D;
+
+  div#loading-indicator {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.8;
+    padding: 20%;
+
+    p {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+
+  div#gif-maker-pictures-container, div#gif-maker-video-container, div#gif-upload-container {
+    padding: 4%;
+
+    h3 {
+      color: white;
+    }
+
+    input#upload-images-file-input, input#upload-video-file-input, input#upload-gif-file-input {
+      background: white;
+      padding: 10px;
+      border: 1px solid #1fa686;
+      border-radius: 4px;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+    .custom-file-input::before {
+      content: 'Upload';
+      display: inline-block;
+      background: #1fa686;
+      border-radius: 3px;
+      padding: 10px 15px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 10pt;
+      color: white;
+    }
+    .custom-file-input:hover::before {
+      border: none;
+    }
+
+    img.uploaded-image {
+      padding: 20px;
+    }
+  }
+
+  .gif-maker-bordered-container {
+    margin: 10% 0;
+    padding: 5%;
+    border: 1px solid #1fa686;
+    border-radius: 5px;
+  }
+
+  #create-button-container {
+    width: 100%;
+  }
+
+  #save-gif-form {
+    display: none;
+  }
+}
+
+#gif-maker-upload-image {
+
+  min-height: 90vh;
+  overflow-y: scroll;
+  background-color: rgb(50, 49, 49);
+
+  div.custom-form {
+    padding: 20px;
+  }
+
+  div#uploaded-images {
+    padding: 20px;
+    div {
+      padding: 0;
+    }
+    img {
+      padding: 1px;
+    }
+    a {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+  }
+
+  .upload-status {
+    font-size: 10px;
+    padding: 10px;
+    .progress {
+      border: none;
+      padding: 0;
+      height: 2px;
+      .bar {
+        height: 2px;
+        margin: 0;
+        background: green;
+      }
+    }
+  }
+
+}
+
+#gif-maker {
+  padding: 10px;
+}
+
+#gif-create-button {
+  height: 2.7rem;
+  margin: 0 auto;
+  width: 90%;
+  padding: 13px;
+  margin: 5%;
+  font-size: 14px;
+}
+
+#placeholder1 {
+  display: block;
+  h1 {
+    font-size: 130px;
+    color: rgb(174, 182, 190);
+    margin: 0;
+  }
+}
+
+#placeholder2 {
+  display: none;
+  h1 {
+    font-size: 130px;
+    color: rgb(174, 182, 190);
+    margin: 0;
+  }
+}
+
+h4 {
+  color: white;
+}
+
+#created-gif {
+  padding: 20px;
+}
+
+#save-gif-form {
+  margin-top: 50px;
+  input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #placeholder1, #placeholder2 {
+    h1 {
+      font-size: 30px;
+      color: rgb(174, 182, 190);
+      margin: 0;
+    }
+  }
+}

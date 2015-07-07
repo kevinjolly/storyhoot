@@ -1,0 +1,41 @@
+<div class="bottom-navbar">
+  <nav>
+    <ul>
+    
+      <li>
+        <%= link_to feed_path do %>
+          <%= image_tag 'home.png' %>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to discover_path do %>
+          <%= image_tag 'discover.png' %>
+        <% end %>
+      </li>
+
+      <li id="create-gif">
+        <%= link_to new_book_path do %>
+          <%= image_tag 'new_gif.png' %>
+        <% end %>
+      </li>
+      
+      <li
+        <% if current_user.bulletins.unread_by(current_user).count > 0 %>
+          id="unread"
+        <% end %>
+      >
+        <%= link_to notifications_path do %>
+          <%= image_tag 'notifications.png' %>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to user_path(current_user) do %>
+          <%= image_tag 'profile.png' %>
+        <% end %>
+      </li>
+
+    </ul>
+  </nav>
+</div>

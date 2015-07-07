@@ -1,0 +1,7 @@
+$('#search-results').append('<%= escape_javascript( render partial: 'shared/book', collection: @books ) %>');
+<% if @books.next_page %>
+  $('.pagination').replaceWith('<%= escape_javascript( will_paginate(@books) ) %>');
+<% else %>
+  $('.pagination').text('No more stories to show');
+<% end %>
+<% sleep 1 %>

@@ -1,0 +1,93 @@
+<div class="row collapse" id="profile-page">
+
+	<div class="large-12 small-10 small-centered columns" id="user-images-container">
+		<% if current_user == @user %>
+			<%= link_to image_tag(@user.cover.url(:cover_size), id: 'user-cover-pic'), edit_user_path(current_user.username) %>
+			<%= link_to image_tag(@user.avatar.url(:medium), id: 'user-profile-pic', class: 'rounded-image-with-border'), edit_user_path(current_user.username) %>
+		<% else %>
+			<%= image_tag @user.cover.url(:cover_size), id: 'user-cover-pic' %>
+			<%= image_tag @user.avatar.url(:medium), id: 'user-profile-pic', class: 'rounded-image-with-border' %>
+		<% end %>
+	</div>
+
+	<div class="large-12 small-10 small-centered columns" id="user-details-container">
+		<div class="clearfix">
+			<div class="left">
+				<h3>
+					<%= @user.name %>
+					<small> @ <%= @user.username %></small>
+					<br>
+					<em><small><b><%= @user.about_me.truncate(50) if @user.about_me %></b></small></em>
+				</h3>
+				<p>
+					<span id="author-<%= @user.id %>-subscription-count">
+						<%= link_to("#{@user.subscriptions.count} subscribers", subscribers_user_path(@user.username)) %>
+					</span>
+					&nbsp;<%= @user.books.count %> gifs&nbsp; <%= @user.total_view_count %> views
+				</p>
+			</div>
+			<div class="right" id="subscribe_div">
+				<% if current_user != @user %>
+					<div id="author-<%= @user.id %>-subscribe-div">
+					<% if current_user.subscribed? @user %>
+						<%= render 'shared/unfollow_form', auth: @user %>
+					<% else %>
+						<%= render 'shared/follow_form', auth: @user %>
+					<% end %>
+					</div>
+				<% else %>
+					<%= link_to 'Create new gif', new_book_path, class: 'button tiny radius' %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="large-12 small-11 small-centered columns" id="user-books-container">
+		<% if @books.any? %>
+
+			<% @books.each do |book| %>
+				<div class="large-3 medium-4 small-12 columns end">
+					<%= div_for book do %>
+						<div class="book-container">
+							<%= link_to image_tag(book.cover.url(:medium)), book %>
+							<div class="clearfix options-profile">
+									<div class="left likes-container" id="book-<%= book.id %>-likes">
+										<% if current_user.voted_as_when_voted_for book %>
+											<%= render 'shared/unlike_link', book: book %>
+										<% else %>
+											<%= render 'shared/like_link', book: book %>
+										<% end %>
+									</div>
+									<div class="right">
+										<i class="fi-eye large"></i> <%= book.impressionist_count %>
+									</div>
+							</div>
+							<p class="title">
+								<%= link_to book.title.truncate(20), book %>
+							</p>
+							<p class="time">
+									created <%= time_ago_in_words(book.created_at) %> ago
+							</p>
+							<div class="clearfix">
+								<div class="left">
+									<% if current_user == @user %>
+										<%= link_to book, :method => :delete, remote: true do %>
+											<span><i class="fi fi-x"></i> Delete</span>
+										<% end %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+		<% else %>
+
+			<p class="text-center">
+				<%= @user.username.capitalize %> hasn't published any gif yet.
+			</p>
+
+		<% end %>
+	</div>
+</div>

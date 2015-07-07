@@ -1,0 +1,76 @@
+<div class="row feed-item">
+	<div class="large-3 medium-3 small-12 columns">
+		<div class="row">
+			<div class="large-8 medium-12 small-9 columns text-right">
+				<p>
+					<span class="username"><%= link_to "@#{feed_item.user.username}", feed_item.user %></span>
+					<br>
+					<span class="time"><%= time_ago_in_words(feed_item.created_at) %> ago</span>
+				</p>
+			</div>
+			<div class="large-4 medium-6 small-3 columns">
+				<%= link_to image_tag(feed_item.user.avatar.url(:thumb)), feed_item.user %>
+			</div>
+		</div>
+	</div>
+	<div class="large-6 medium-7 columns gif-container">
+		<%= link_to image_tag(feed_item.cover.url), feed_item %>
+		<div class="options-container text-right">
+			<div class="option likes-container" id="book-<%= feed_item.id %>-likes">
+				<% if current_user.voted_as_when_voted_for feed_item %>
+					<%= render 'shared/unlike_link', book: feed_item %>
+				<% else %>
+					<%= render 'shared/like_link', book: feed_item %>
+				<% end %>
+			</div>
+			<div class="option">
+				<i class="fi-eye large"></i> <%= feed_item.impressionist_count %>
+			</div>
+			<div class="option">
+				<a href="" class="share-button"><i class="fi-share"></i></a>
+			</div>
+			<div class="option social-buttons">
+				<%= social_share_button_tag(feed_item.title) %>
+			</div>
+		</div>
+		<div class="clearfix">
+			<p class="feed-title">
+					<%= auto_link(feed_item.title).html_safe %>
+			</p>
+		</div>
+		
+		<% if feed_item.comments.any? %>
+			<p class="comments-count">
+				<%= link_to "#{feed_item.comments.count} #{'comment'.pluralize(feed_item.comments.count)}", book_path(feed_item.id) %>
+			</p>
+			<div class="comments-section <%= 'comments-section-fixed-height' if (feed_item.comments.count > 3) %>">
+				<% feed_item.comments.each do |comment| %>
+					<div class="row collapse">
+						<div class="large-1 small-2 columns">
+							<%= link_to image_tag(comment.user.avatar.url(:thumb)), user_path(comment.user.username) %>
+						</div>
+						<div class="large-11 small-10 columns">
+							<p>
+								<span class="comments-username">
+									<%= link_to comment.user.username, user_path(comment.user.username) %>
+								</span>
+								<span class="comment-content">
+									<%= auto_link(comment.content).html_safe %>
+								</span>
+							</p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+		<br>
+		<div class="comment_box">
+			<%= form_for(@comment) do |f| %>
+				<%= f.text_field :content, placeholder: 'Comment...' %>
+				<%= f.hidden_field :book_id, value: feed_item.id %>
+			<% end %>
+		</div>
+	</div>
+	<div class="large-3 columns">
+	</div>
+</div>

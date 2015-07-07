@@ -1,0 +1,15 @@
+<% @bulletins.each do |bulletin| %>
+  <div class="panel radius">
+    <div class="row">
+      <div class="large-2 columns">
+        <%= image_tag User.find(bulletin.notifier).avatar.url(:thumb), width: '50' %>
+      </div>
+      <div class="large-10 columns">
+        <p>
+          <%= link_to bulletin.content, bulletin.url %>
+          <span class="time_ago"><%= time_ago_in_words(bulletin.created_at) %> ago</span>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

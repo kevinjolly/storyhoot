@@ -1,0 +1,11 @@
+<h3 class="text-center">Create a new story</h3>
+<%= form_for Book.new, :html => {:multipart => true} do |f| %>
+	<%= f.text_field :title, placeholder: 'Write a title for your story in about 20 words' %>
+	<%= f.text_area :description, placeholder: 'Write a description for your story in about 100 words', rows: 6 %>
+  <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ]} , prompt: "Select a Category" %>
+  <%= f.label 'Upload a cover for your story' %>
+  <%= f.file_field :cover %>
+  <div class="text-center">
+	  <%= f.submit 'Create story', class: 'button tiny radius' %>
+  </div>
+<% end %>

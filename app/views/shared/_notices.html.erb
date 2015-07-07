@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+  <div class="text-center notice">
+    <div class="right">
+      <a class="close-notice">
+        <span><i class="fi fi-x"></i></span>
+      </a>
+    </div>
+    <p>
+      <%= flash[:notice] %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="row" id="support-form-container">
+  <div class="large-8 large-centered columns custom-form">
+    <div class="text-center">
+      <%= link_to image_tag('logo_storyhoot.png'), root_path %>
+    </div>
+    <p class="text-center">
+      <%= link_to 'Back to profile', current_user if current_user %>
+    </p>
+    <h2 class="text-center">Storyhoot Support</h2>
+    <%= form_for @support_ticket do |f| %>
+      <% if @support_ticket.errors.any? %>
+        <div class="alert">
+          <p><%= pluralize(@support_ticket.errors.count, 'error') %></p>
+          <ul>
+            <% @support_ticket.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.text_field :name, placeholder: 'Name' %>
+      <%= f.email_field :email, placeholder: 'Email' %>
+      <%= f.text_field :title, placeholder: 'Title of the query' %>
+      <%= f.text_area :question, placeholder: 'The query', rows: '10' %>
+      <div class="text-center">
+        <%= f.submit 'Submit query', class: 'button tiny radius' %>
+      </div>
+    <% end %>
+    <p class="text-center">
+      You can also contact us at
+      <%= link_to 'help@storyhoot.com', '#' %>
+    </p>
+  </div>
+</div>

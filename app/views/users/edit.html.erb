@@ -1,0 +1,134 @@
+<div class="row" id="user-edit-page">
+	<div class="large-10 large-centered columns">
+		<hr>
+		<h3 class="text-center">User Settings</h3>
+		<hr>
+		<ul class="tabs" data-tab>
+			<li class="tab-title active">
+				<a href="#profile-settings">Profile Settings</a>
+			</li>
+			<li class="tab-title">
+				<a href="#display-pic-settings">Display Pics</a>
+			</li>
+			<li class="tab-title">
+				<a href="#change-password">Change Password</a>
+			</li>
+		</ul>
+		<div class="tabs-content">
+			<div class="content active" id="profile-settings">
+
+				<%= form_for @user do |f| %>
+						<% if @user.errors.any? %>
+						  <div class="alert">
+						    <p><%= pluralize(@user.errors.count, 'error') %></p>
+						    <ul>
+						      <% @user.errors.full_messages.each do |msg| %>
+						        <li><%= msg %></li>
+						      <% end %>
+						    </ul>
+						  </div>
+						<% end %>
+
+						<div class="row">
+							<div class="large-10 large-centered columns">
+								<label>Username
+									<%= f.text_field :username, placeholder: 'Username' %>
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="large-10 large-centered columns">
+								<label>Name
+									<%= f.text_field :name, placeholder: 'Name' %>
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="large-10 large-centered columns">
+								<label>Email
+									<%= f.email_field :email, placeholder: 'Email' %>
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="large-10 large-centered columns">
+								<label>About Me
+									<%= f.text_area :about_me, placeholder: 'About me' %>
+								</label>
+							</div>
+						</div>
+
+						<div class="text-center">
+						  <%= f.submit 'Save Changes', class: 'button tiny radius' %>
+						</div>
+
+				<% end %>
+
+			</div>
+			<div class="content" id="display-pic-settings">
+				
+			<%= form_for @user, htnl: {multipart: true} do |f| %>
+						<% if @user.errors.any? %>
+						  <div class="alert">
+						    <p><%= pluralize(@user.errors.count, 'error') %></p>
+						    <ul>
+						      <% @user.errors.full_messages.each do |msg| %>
+						        <li><%= msg %></li>
+						      <% end %>
+						    </ul>
+						  </div>
+						<% end %>
+
+						<div class="row">
+							<div class="large-6 columns">
+								<div class="row">
+									<div class="large-6 large-centered columns">
+										<%= image_tag @user.avatar.url(:thumb), class: 'rounded-image-with-border' %>
+										<label>Change profile picture
+											<%= f.file_field :avatar %>
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="large-6 columns">
+								<div class="row">
+									<div class="large-6 large-centered columns">
+										<%= image_tag @user.cover.url(:thumb), class: 'rounded-image-with-border predefined-height-100' %>
+										<label>Change cover picture
+											<%= f.file_field :cover %>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="text-center">
+						  <%= f.submit 'Save Changes', class: 'button tiny radius' %>
+						</div>
+
+				<% end %>
+
+			</div>
+			<div class="content" id="change-password">
+				
+				<div class="row">
+					<div class="large-10 large-centered columns">
+						<%= form_tag users_change_password_path do %>
+							<%= password_field_tag :current_password, nil, placeholder: 'Current Password' %>
+							<%= password_field_tag :new_password, nil, placeholder: 'New Password' %>
+							<%= password_field_tag :confirm_password, nil, placeholder: 'Confirm Password' %>
+							<div class="text-center">
+								<%= submit_tag 'Change Password', class: 'button tiny radius' %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

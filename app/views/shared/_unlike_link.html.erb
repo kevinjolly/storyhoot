@@ -1,0 +1,5 @@
+<div class="book-liked">
+  <%= link_to unlike_book_path(book), method: :put, remote: true do %>
+    <span><i class="fi-heart large"></i> <%= book.get_likes.size %></span>
+  <% end %>
+</div>

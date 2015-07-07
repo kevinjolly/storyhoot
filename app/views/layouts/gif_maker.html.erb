@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Storyhoot</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body id="gif-maker-body">
+    <header id="topbar">
+      <div class="show-for-large-up">
+        <%= render 'shared/navbar' %>
+      </div>
+      <div class="hide-for-large-up">
+        <%= render 'shared/navbar_mobile' %>
+      </div>
+    </header>
+    <main>
+      <%= render 'shared/notices' %>
+      <%= yield %>
+      <div id="loading-indicator" class="text-center">
+        <p>Please wait while we're preparing your GIF</p>
+        <%= image_tag 'loading.gif', width: '30' %>
+      </div>
+      <div class='hide-for-medium-up'>
+        <%= render 'shared/bottom_navbar' %>
+      </div>
+    </main>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

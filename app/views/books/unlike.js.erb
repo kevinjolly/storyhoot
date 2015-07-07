@@ -1,0 +1,1 @@
+$("#book-<%= @book.id %>-likes").html("<%= escape_javascript(render('shared/like_link', book: @book)) %>")

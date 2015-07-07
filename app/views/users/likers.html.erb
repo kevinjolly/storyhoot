@@ -1,0 +1,18 @@
+<% if @likers.any? %>
+<div class="row">
+	<div class="large-11 large-centered columns">
+		<div class="row">
+			<div class="large-4 columns">
+				<div class="book_container">
+					<% @likers.each do |f|%>
+						<%= link_to image_tag(f.avatar.url(:medium), size: '200x200'), user_path(f.username) %>
+						<h4><%= f.name %><small> @ <%= f.username %></small></h4>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% else %>
+<h4> No Likes yet </h4>
+<% end %>

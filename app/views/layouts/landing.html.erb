@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Welcome to Storyhoot</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= render 'shared/notices' %>
+    <div class="landing-template">
+      <%= yield %>
+    </div>
+    <% unless current_user %>
+      <footer class="landing-footer text-center">
+        <%= link_to 'Jobs', '#' %>
+        <%= link_to 'Support', support_path %>
+        <%= link_to 'Privacy', '#' %>
+        <%= link_to 'Terms', '#' %>
+      </footer>
+    <% end %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

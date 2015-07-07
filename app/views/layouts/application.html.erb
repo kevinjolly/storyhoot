@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Storyhoot</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header id="topbar">
+      <div class="show-for-large-up">
+        <%= render 'shared/navbar' %>
+      </div>
+      <div class="hide-for-large-up">
+        <%= render 'shared/navbar_mobile' %>
+      </div>
+    </header>
+    <main>
+      <%= render 'shared/notices' %>
+      <%= yield %>
+      <%= render 'shared/footer' unless current_user %>
+      <div class='hide-for-medium-up'>
+        <%= render 'shared/bottom_navbar' %>
+      </div>
+    </main>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

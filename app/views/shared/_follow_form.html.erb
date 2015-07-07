@@ -1,0 +1,4 @@
+<%= form_for current_user.reverse_subscriptions.build(author_id: auth.id), remote: true do |f| %>
+	<%= f.hidden_field :author_id %>
+	<%= f.submit 'Subscribe', class: 'button radius tiny' %>
+<% end %>

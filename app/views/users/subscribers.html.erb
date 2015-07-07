@@ -1,0 +1,14 @@
+<% if @subscribers.any? %>
+	<div class="row panel">
+		<% @subscribers.each do |subscriber| %>
+      <div class="large-3 columns end text-center">
+        <%= link_to image_tag(subscriber.avatar.url(:thumb)), subscriber %>
+        <p>
+          <%= link_to subscriber.username, subscriber %>
+        </p>
+      </div>
+    <% end %>
+	</div>
+	<% else %>
+		<h4 class="text-center"><%= @user.username %> has no subscribers yet</h4>
+	<% end %>

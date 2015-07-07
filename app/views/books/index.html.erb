@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="large-8 large-centered columns" id="search-results">
+		<p class="text-center">
+			Displaying gifs that match 
+			<span class="pattern">
+				<%= params[:query] %>
+			</span>
+		</p>
+		<div class="text-center">
+			<%= form_tag users_path, :method => :get do %>
+		    <%= hidden_field_tag :query, params[:query], placeholder: 'Search for cool gifs' %>
+		    <%= submit_tag 'Search for users instead', class: 'button small radius' %>
+			<% end %>
+		</div>
+		<% if @books.any? %>
+			<%= render partial: 'shared/book', collection: @books %>
+		<% else %>
+			<h5 class="text-center"><br>Sorry. We couldn't find matches for your search query</h5>
+		<% end %>
+	</div>
+</div>
+
+<div class="text-center">
+	<p>
+		<%= will_paginate @books %>
+	</p>
+</div>

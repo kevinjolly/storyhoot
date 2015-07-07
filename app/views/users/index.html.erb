@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="large-10 large-centered columns" id="search-results-users">
+		<p class="text-center">
+			Displaying users that match 
+			<span class="pattern">
+				<%= params[:query] %>
+			</span>
+		</p>
+		<% if @users.any? %>
+			<div class="row">
+				<%= render partial: 'shared/user', collection: @users %>
+			</div>
+		<% else %>
+			<h5 class="text-center"><br>Sorry. We couldn't find matches for your search query</h5>
+		<% end %>
+	</div>
+</div>
+
+<div class="text-center">
+	<p>
+		<%= will_paginate @users %>
+	</p>
+</div>

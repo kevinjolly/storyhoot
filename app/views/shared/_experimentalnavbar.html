@@ -1,0 +1,55 @@
+<div class="row-collpase" id="custom-navbar">
+
+  <div class="large-2 columns">
+    <%= link_to(image_tag('storyhoot.png', class: 'brand'), feed_path) %>
+  </div>
+
+  <div class="large-8 columns">
+    <%= form_tag books_path, :method => :get do %>
+    <div class="row collapse">
+      <div class="large-11 small-9 columns">
+        <%= text_field_tag :query, params[:query], :placeholder => 'Search stories, authors etc' %>
+      </div>
+      <div class="large-1 small-3 columns">
+        <%= submit_tag "Search", :name => nil, :class => 'button tiny secondary'%>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="large-2 columns">
+    <div id="navbar-user-details" class="row collapse">
+      <div class="small-2 columns">
+        <%= link_to image_tag(current_user.avatar.url(:thumb), class: 'profile-pic'), user_path(current_user.username) %>
+      </div>
+      <div class="small-8 columns" id="user-menu-trigger">
+        <%= link_to current_user.username, user_path(current_user.username) %>
+
+        <div id="user-options-for-custom-navbar">
+          <ul>
+            <li>
+              <%= link_to 'View Profile', user_path(current_user.username) %>
+            </li>
+            <li>
+              <%= link_to notifications_path do %>
+                <span>
+                  Notifications
+                  <%= current_user.bulletins.unread_by(current_user).count %>
+                </span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'Settings', edit_user_path(current_user.username) %>
+            </li>
+            <li>
+              <%= link_to 'Logout', :logout, method: :post %>
+            </li>
+          </ul>
+        </div>
+
+      </div>  
+      <div class="small-2 columns">
+      </div>
+    </div>
+  </div>
+</div>

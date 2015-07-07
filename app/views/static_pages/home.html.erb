@@ -1,0 +1,42 @@
+  <div class="landing-header">
+
+    <div class="row-collapse text-center">
+      <div class="landing-text">
+        <!--
+        <%= image_tag 'b.jpg' %>
+        -->
+        <%= image_tag 'logo_storyhoot.png' %>
+        <h3>Share your story with the world</h3>
+        <div id="bounce">
+          <a href="#about" id="about-link">
+            <%= image_tag 'arrow.png', width: 50 %>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="landing-links" class="row-collapse">
+      <div class="left">
+        <%= link_to 'Sign up', new_user_path, class: 'button' %>
+      </div>
+      <div class="right">
+        <%= link_to 'Sign in', login_path, class: 'button' %>
+      </div>
+    </div>
+
+  </div>
+
+</div> <!-- closing div.landin-template LOOK IN LAYOUT -->
+<div> <!-- Opening a new div -->
+
+  <div class="row-collapse text-center clearfix" id="about">
+    <div class="large-5 large-offset-1 small-12 columns">
+      <%= image_tag 'logo_storyhoot.png' %>
+      <h3>Share your story with the world</h3>
+      <p>Storyhoot is a fun, fast and beautiful way to create and share stories using gifs</p>
+      <%= image_tag 'google_play_vector.png', id: 'play-vector' %>
+    </div>
+    <div class="large-5 small-12 columns end">
+      <%= image_tag 'nexus_mockup.png', id: 'nexus-mockup' %>
+    </div>
+  </div>

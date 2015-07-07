@@ -1,0 +1,12 @@
+<div class="row-collapse">
+  <div class="large-6 large-centered medium-8 medium-centered small-12 columns" id="hashtags-container">
+    <% if @hashtags.any? %>
+      <%= render partial: 'shared/hashtag', collection: @hashtags %>
+    <% else %>
+      <h5 class="text-center"><br>No hashtags match your query.</h5>
+    <% end %>
+  </div>
+</div>
+<div class="text-center">
+  <%= will_paginate @hashtags %>
+</div>

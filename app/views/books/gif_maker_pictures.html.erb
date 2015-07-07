@@ -1,0 +1,54 @@
+<div class="row collapse" id="gif-maker-pictures-container">
+  <h3 class="text-center">Upload two or more images to create a gif</h3>
+
+  <input type="file" id="upload-images-file-input" class="custom-file-input" multiple>
+
+  <div id="uploaded-images-container" class="text-center"></div>
+
+  <div class="gif-maker-bordered-container">
+
+    <div class="large-12 columns custom-form">
+      <p class="text-center">Adjust speed</p>
+      <div class="range-slider" data-slider data-options="start: 1; end: 10;">
+        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+        <span class="range-slider-active-segment"></span>
+        <input type="hidden">
+      </div>
+    </div>
+
+    <div id="create-button-container" class="custom-form text-center">
+      <a class="button" id="create-gif-button">Create my gif</a>
+    </div>
+
+  </div>
+
+  <div class="row gif-maker-bordered-container" id="save-gif-form">
+    <div class="large-6 medium-6 small-12 columns">
+
+      <div id="created-gif-container" class="text-center">
+      </div>
+
+    </div>
+    <div class="large-6 medium-6 small-12 columns">
+
+      <div class="custom-form text-center">
+        <h4>Your GIF is ready. Save it here!</h4>
+        <form>
+          <input type="text" id="gif-title" placeholder="Enter a title for your gif">
+          <select id="gif-category">
+            <option value="0">Select a category</option>
+            <%= categories.each do |category| %>
+              <option value="<%= category.id %>">
+                <%= category.name %>
+              </option>
+            <% end %>
+          </select>
+          <input type="submit" id="save-gif-button" value="Click here to save the GIF" class="button primary" />
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  
+</div>

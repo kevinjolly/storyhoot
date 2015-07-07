@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="large-12 columns" id="welcome-div">
+    <div class="text-center" id="welcome-div-top-part">
+      <h2>Welcome to Storyhoot</h2>
+      <h5 class="subheader">
+        “Hello there, <%= current_user.username %> ! Storyhoot is a fine and fast way to create and share gifs with the world”
+      </h5>
+      <%= link_to 'Skip this and Proceed to profile', current_user, class: 'button tiny' %>
+      <h5 class="subheader">
+        Follow 5 users, then we’ll build a custom home feed for you”
+      </h5>
+    </div>
+    <div class="row" id="find-authors-container">
+      <% @authors.each do |author| %>
+        <% if author != current_user %>
+          <%= render 'shared/user', user: author %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <%= link_to "I'm done. Take me to my feed", feed_path, class: 'button tiny' %>
+    </div>
+  </div>
+</div>

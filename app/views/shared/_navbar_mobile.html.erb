@@ -1,0 +1,49 @@
+<div id="mobile-navbar" class="clearfix">
+  <div class="left">
+    <a href="#" id="menu-icon">
+      <span><i class="fi-list extra-large"></i></span>
+    </a>
+  </div>
+  <div class="right">
+    <%= link_to image_tag('storyhoot-logo-white.png'), feed_path %>
+  </div>
+</div>
+
+<div id="space-compensation-for-navbar"></div>
+
+<div id="mobile-sidebar">
+  <ul class="side-nav">
+    <li>
+      <%= form_tag books_path, :method => :get do %>
+        <%= text_field_tag :query, params[:query], :placeholder => 'Search for cool gifs' %>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to 'Feed', feed_path %>
+    </li>
+
+    <li>
+      <%= link_to 'Profile', user_path(current_user.username) %>
+    </li>
+
+    <li>
+      <%= link_to notifications_path do %>
+        <span>
+          Notifications
+        </span>
+        <span id ="notification-count">
+          <%= current_user.bulletins.unread_by(current_user).count %> unread
+        </span>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to 'Settings', edit_user_path(current_user.username) %>
+    </li>
+
+    <li>
+      <%= link_to "Logout", :logout, method: :post %>
+    </li>
+  </ul>
+</div>

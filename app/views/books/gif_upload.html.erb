@@ -1,0 +1,35 @@
+<div class="row collapse" id="gif-upload-container">
+  <h3 class="text-center">Upload a GIF here</h3>
+
+  <input type="file" id="upload-gif-file-input" class="custom-file-input">
+
+  <div class="row gif-maker-bordered-container" id="save-gif-form">
+    <div class="large-6 medium-6 small-12 columns">
+
+      <div id="uploaded-gif-container" class="text-center">
+      </div>
+
+    </div>
+    <div class="large-6 medium-6 small-12 columns">
+
+      <div class="custom-form text-center">
+        <h4>Your GIF is ready. Save it here!</h4>
+        <form>
+          <input type="text" id="gif-title" placeholder="Enter a title for your gif">
+          <select id="gif-category">
+            <option value="0">Select a category</option>
+            <%= categories.each do |category| %>
+              <option value="<%= category.id %>">
+                <%= category.name %>
+              </option>
+            <% end %>
+          </select>
+          <input type="submit" id="save-gif-button" value="Click here to save the GIF" class="button primary" />
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  
+</div>

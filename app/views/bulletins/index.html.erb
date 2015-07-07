@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="large-6 large-centered columns book_container">
+    <h3>Your Notifications</h3>
+    <ul class="tabs" data-tab>
+      <li class="tab-title">
+        <a href="#panel-all">All</a>
+      </li>
+      <li class="tab-title active">
+        <a href="#panel-unread">Unread</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <div class="content active" id="panel-unread">
+        <% if current_user.bulletins.unread_by(current_user).any? %>
+          <%= render 'shared/bulletin_unread' %>
+        <% else %>
+          <h5>You have no unread notifications</h5>
+        <% end %>
+      </div>
+      <div class="content" id="panel-all">
+        <% if current_user.bulletins.any? %>
+          <%= render 'shared/bulletin' %>
+        <% else %>
+          <h5>You have no notifications</h5>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% controller.mark_bulletin_as_read %>

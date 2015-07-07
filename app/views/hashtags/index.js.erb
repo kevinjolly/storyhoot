@@ -1,0 +1,7 @@
+$('#hashtags-container').append('<%= escape_javascript( render partial: 'shared/hashtag', collection: @hashtags ) %>');
+<% if @hashtags.next_page %>
+  $('.pagination').replaceWith('<%= escape_javascript( will_paginate(@hashtags) ) %>');
+<% else %>
+  $('.pagination').text('No more hashtags to show');
+<% end %>
+<% sleep 1 %>
