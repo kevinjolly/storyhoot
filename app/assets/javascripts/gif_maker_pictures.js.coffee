@@ -38,7 +38,9 @@ if $('#gif-maker-pictures-container').length
     $('#loading-indicator').css('display', 'block')
 
     $('.uploaded-image').each (index)->
-      imagesUrl[index] = $(this).attr('src')
+      imagesUrl[index] = $(this).attr('src').replace(/"+/g,"")
+
+    console.log imagesUrl[0]
 
     speed = parseInt $('.range-slider').attr('data-slider'), 10
     speed = 11 - speed

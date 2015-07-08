@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /log/*.lck
-/tmp
+/tmp/*
 
 # Ignore paperclip uploads
 /public/system

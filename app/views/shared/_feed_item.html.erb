@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div class="large-6 medium-7 columns gif-container">
-		<%= link_to image_tag(feed_item.cover.url), feed_item %>
+		<%= link_to image_tag(feed_item.cover.url(:medium)), feed_item %>
 		<div class="options-container text-right">
 			<div class="option likes-container" id="book-<%= feed_item.id %>-likes">
 				<% if current_user.voted_as_when_voted_for feed_item %>

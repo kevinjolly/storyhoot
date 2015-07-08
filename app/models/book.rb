@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
 	has_many :hashtags, dependent: :destroy
 	validates :title, presence: true
 	validates :category, presence: true
-	has_attached_file :cover, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "BookCoverPic.png"
+	has_attached_file :cover, :styles => { :medium => "500x500#", :thumb => "150x150#" }, :default_url => "BookCoverPic.png"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
 	searchkick
