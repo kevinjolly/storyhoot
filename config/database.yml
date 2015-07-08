@@ -87,4 +87,4 @@ production:
   <<: *default
   database: storyhoot
   username: deploy
-  password: <%= ENV['POSTGRSQL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['POSTGRESQL_DATABASE_PASSWORD'] %>
