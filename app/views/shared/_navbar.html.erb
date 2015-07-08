@@ -34,18 +34,18 @@
         <%= link_to image_tag(current_user.avatar.url(:thumb), class: 'profile-pic'), user_path(current_user.username) %>
       </div>
       <div class="small-8 columns">
-        <%= link_to current_user.username, user_path(current_user.username), id: 'user-menu-trigger' %>
+        <%= link_to current_user.username.upcase, user_path(current_user.username), id: 'user-menu-trigger' %>
 
         <div id="user-options-for-custom-navbar">
           <ul>
+            <li class="highlight-option">
+              <%= link_to 'Create GIF', new_book_path %>
+            </li>
             <li>
               <%= link_to 'Discover', discover_path %>
             </li>
             <li>
               <%= link_to 'View Profile', user_path(current_user.username) %>
-            </li>
-            <li>
-              <%= link_to 'Create GIF', new_book_path %>
             </li>
             <li>
               <%= link_to notifications_path do %>
