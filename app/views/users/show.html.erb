@@ -71,7 +71,7 @@
 							<div class="clearfix">
 								<div class="left">
 									<% if current_user == @user %>
-										<%= link_to book, :method => :delete, remote: true do %>
+										<%= link_to book, :method => :delete do %>
 											<span><i class="fi fi-x"></i> Delete</span>
 										<% end %>
 									<% end %>
