@@ -15,7 +15,12 @@
 			<div class="left">
 				<h3>
 					<%= @user.name %>
-					<small> @ <%= @user.username %></small>
+					<small>
+						@<%= @user.username %>
+						<% if @user.verified_status == 'verified' %>
+						  <i class="fi fi-check"></i>
+						<% end %>
+					</small>
 					<br>
 					<em><small><b><%= @user.about_me.truncate(50) if @user.about_me %></b></small></em>
 				</h3>
