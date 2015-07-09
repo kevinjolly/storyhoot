@@ -108,8 +108,15 @@ class UsersController < ApplicationController
 	end
 
 	def verify_account
-		flash[:notice] = "You have successfully requested an account verification."
-		redirect_to current_user
+		user = current_user
+		if !user.verification_request && user.update_attributes(verification_request: 'requested')
+			user.send_verification_request
+			flash[:notice] = "You have successfully requested an account verification."
+			redirect_to current_user
+		else
+			flash[:notice] = "You have already requested a verification."
+			redirect_to current_user
+		end
 	end
 
 	private

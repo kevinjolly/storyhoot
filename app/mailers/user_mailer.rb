@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "storyhoot_support@storyhoot.com"
+  default from: "support@storyhoot.com"
 
   def password_reset(user)
     @user = user

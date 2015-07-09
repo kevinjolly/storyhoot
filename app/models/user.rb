@@ -72,6 +72,13 @@ class User < ActiveRecord::Base
 		UserMailer.password_reset(self).deliver
 	end
 
+	def send_verification_request
+		admin_emails = ['prajwalpy6@gmail.com', 'kevinjolly7@hotmail.com']
+		admin_emails.each do |email|
+			AdminMailer.request_verification(self, email).deliver
+		end
+	end
+
 	def update_user_total_view_count
 		update(total_view_count: self.books.sum(:view_count))
 	end
