@@ -540,8 +540,12 @@ div#feed-content {
 		border: 1px solid #1fa686;
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
-		p{
-			color: #1fa686;
+		p, a.link-in-a-box {
+			color: white;
+			padding: 2px;
+			background: #1fa686;
+			border-radius: 5px;
+			font-weight: bold;
 		}
 		@media only screen and (max-width: 40em){
 			padding: 2px;

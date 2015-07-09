@@ -19,11 +19,16 @@
 					<br>
 					<em><small><b><%= @user.about_me.truncate(50) if @user.about_me %></b></small></em>
 				</h3>
-				<p>
+				<p class="text-center">
 					<span id="author-<%= @user.id %>-subscription-count">
-						<%= link_to("#{@user.subscriptions.count} subscribers", subscribers_user_path(@user.username)) %>
+						<%= link_to subscribers_user_path(@user.username), class: 'link-in-a-box' do %>
+							<%= pluralize @user.subscribers.count, 'subscriber' %>
+						<% end %>
 					</span>
-					&nbsp;<%= @user.books.count %> gifs&nbsp; <%= @user.total_view_count %> views
+					&nbsp;
+					<%= pluralize @user.books.count, 'gif' %>
+					&nbsp;
+					<%= pluralize @user.total_view_count, 'view' %>
 				</p>
 			</div>
 			<div class="right" id="subscribe_div">
