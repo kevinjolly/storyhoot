@@ -135,7 +135,11 @@
 			<div class="content" id="verify-account">
 
 				<div class="row text-center">
-					<%= link_to 'Request account verfication', users_verify_account_path, method: 'post', class: 'button radius' %>
+					<% if @user.verified_status == 'verified' %>
+						<p>You've been verified</p>
+					<% else %>
+						<%= link_to 'Request account verfication', users_verify_account_path, method: 'post', class: 'button radius' %>
+					<% end %>
 				</div>
 
 			</div>
