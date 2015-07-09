@@ -61,7 +61,7 @@
               <%= link_to 'Settings', edit_user_path(current_user.username) %>
             </li>
             <li>
-              <% unless @user.verified_status == 'verified' %>
+              <% if @user && !@user.verified_status == 'verified' %>
                 <%= link_to 'Verify Account', users_verify_account_path, method: 'post' %>
               <% end %>
             </li>
