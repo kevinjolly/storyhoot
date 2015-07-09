@@ -23,8 +23,9 @@ class OauthsController < ApplicationController
         auto_login(@user)
         if provider == 'facebook'
           redirect_to complete_facebook_sign_up_path, :notice => "One more step and you're done!"
+        else
+          redirect_to find_authors_path, :notice => "Logged in from #{provider.titleize}!"
         end
-        redirect_to find_authors_path, :notice => "Logged in from #{provider.titleize}!"
       rescue
         redirect_to login_path, :notice => "Failed to login from #{provider.titleize}!"
       end
