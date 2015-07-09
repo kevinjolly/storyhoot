@@ -271,13 +271,17 @@ div#feed-content {
 		div#user-stats-container-on-feed {
 			padding: 5px 0;
 			p {
-				color: #1fa686;
+				background: #1fa686;
+				padding: 2px;
+				border-radius: 5px;
+				color: white;
 				font-size: 0.9rem;
+				font-weight: bold;
 			}
 		}
 
 		div#who-to-follow {
-			border-top: 1px solid #1fa686;
+			border-top: 1px dotted #1fa686;
 			padding: 1%;
 			p {
 				display: none;
@@ -286,9 +290,7 @@ div#feed-content {
 				font-size: 0.8rem;
 			}
 			input.button.radius.tiny {
-				padding: 0;
-				color: #1fa686;
-				background: white;
+				padding: 2px;
 			}
 		}
 
