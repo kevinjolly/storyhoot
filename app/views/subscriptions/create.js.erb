@@ -1,2 +1,2 @@
 $("#author-<%= @user.id %>-subscribe-div").html("<%= escape_javascript(render('shared/unfollow_form', auth: @user)) %>")
-$("#author-<%= @user.id %>-subscription-count").html('<%= link_to("#{@user.subscriptions.count} subscribers", subscribers_user_path(@user)) %>')
+$("#author-<%= @user.id %>-subscription-count").html('<%= link_to("#{@user.subscriptions.count} subscribers", subscribers_user_path(@user), class: "link-in-a-box") %>')
