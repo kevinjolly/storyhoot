@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'support_tickets/create'
   get 'support', to: 'support_tickets#new'
 
-  resources :books do
+  resources :books, path: '/story/' do
     member do
       put "like", to: 'books#like'
       put "unlike", to: 'books#unlike'
