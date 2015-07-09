@@ -21,7 +21,10 @@ class OauthsController < ApplicationController
         @user.activate!
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_to find_authors_path, :notice => "Logged in from #{provider.titleize}! Please change your username."
+        if provider == 'facebook'
+          redirect_to complete_facebook_sign_up_path, :notice => "One more step and you're done!"
+        end
+        redirect_to find_authors_path, :notice => "Logged in from #{provider.titleize}!"
       rescue
         redirect_to login_path, :notice => "Failed to login from #{provider.titleize}!"
       end

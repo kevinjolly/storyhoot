@@ -64,6 +64,18 @@ i.extra-large {font-size: 1.6rem; }
 	height: 100px;
 }
 
+div#change-username-after-facebook-authentication {
+	padding: 50px 20px;
+	margin-top: 20px;
+	background: white;
+	border: 1px solid #1fa686;
+	border-radius: 5px;
+	p {
+		color: #1fa686;
+		font-size: 1.1rem;
+	}
+}
+
 div.book-show-page {
 	margin-top: 30px;
 	margin-bottom: 30px;

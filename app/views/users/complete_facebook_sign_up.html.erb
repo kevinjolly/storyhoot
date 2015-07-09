@@ -1,0 +1,17 @@
+<div class="row text-center" id="change-username-after-facebook-authentication">
+  <p>
+    Welcome to storyhoot!
+    <br>
+    It is recommended that you set a unique username now.
+  </p>
+  <div class="large-4 large-centered columns custom-form">
+
+    <%= form_tag users_change_username_path do %>
+      <%= text_field_tag :username, nil, placeholder: 'Choose a username.' %>
+      <div class="text-center">
+        <%= submit_tag 'Create my account', class: 'button tiny radius' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

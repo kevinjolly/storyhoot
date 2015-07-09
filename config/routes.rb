@@ -35,11 +35,15 @@ Rails.application.routes.draw do
     end
   end
   post 'users/change_password'
+  post 'users/change_username'
+  get 'feed', to: 'users#newsfeed'
+  get 'find-authors', to: 'users#find_authors', :as => :find_authors
+  get 'complete-facebook-sign-up', to: 'users#complete_facebook_sign_up', :as => :complete_facebook_sign_up
+  
   resources :sessions, only: [:create, :destroy]
   get 'login', to: 'sessions#new', :as => :login
   post 'logout', to: 'sessions#destroy', :as => :logout
-  get 'feed', to: 'users#newsfeed'
-  get 'find_authors', to: 'users#find_authors'
+  
   resources :password_resets
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook

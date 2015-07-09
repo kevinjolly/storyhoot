@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	skip_before_filter :require_login, only: [:new, :create, :activate]
 	
-	layout 'landing', :only => [:new, :create]
+	layout 'landing', :only => [:new, :create, :complete_facebook_sign_up]
 
 	def index
 		@users = User.text_search(params[:query], params[:page])
@@ -63,6 +63,17 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def change_username
+		user = current_user
+		if user.update_attributes(username: params[:username])
+			flash[:notice] = "You have logged in successfully from facebook"
+			redirect_to user
+		else
+			flash[:notice] = "Seems like the username already exists."
+			redirect_to complete_facebook_sign_up_path
+		end
+	end
+
 	def activate
 		if @user = User.load_from_activation_token(params[:id])
 		  @user.activate!
@@ -93,6 +104,8 @@ class UsersController < ApplicationController
 		@authors = User.order('total_view_count DESC').limit(12)
 	end
 
+	def complete_facebook_sign_up
+	end
 
 	private
 			def user_params
