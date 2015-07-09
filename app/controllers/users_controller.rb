@@ -107,6 +107,11 @@ class UsersController < ApplicationController
 	def complete_facebook_sign_up
 	end
 
+	def verify_account
+		flash[:notice] = "You have successfully requested an account verification."
+		redirect_to current_user
+	end
+
 	private
 			def user_params
 				params.require(:user).permit(:username, :name, :email, :password, :cover, :avatar, :about_me, :authentications_attributes)

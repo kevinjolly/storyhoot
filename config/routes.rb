@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'feed', to: 'users#newsfeed'
   get 'find-authors', to: 'users#find_authors', :as => :find_authors
   get 'complete-facebook-sign-up', to: 'users#complete_facebook_sign_up', :as => :complete_facebook_sign_up
+  post 'users/verify_account'
   
   resources :sessions, only: [:create, :destroy]
   get 'login', to: 'sessions#new', :as => :login

@@ -61,6 +61,9 @@
               <%= link_to 'Settings', edit_user_path(current_user.username) %>
             </li>
             <li>
+              <%= link_to 'Verify Account', users_verify_account_path, method: 'post' %>
+            </li>
+            <li>
               <%= link_to 'Logout', :logout, method: :post %>
             </li>
           </ul>
