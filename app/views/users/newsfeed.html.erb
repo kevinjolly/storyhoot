@@ -1,7 +1,32 @@
-<div id="feed-content">
-  <% if @feed_items.any? %>
-    <%= render partial: 'shared/feed_item', collection: @feed_items %>
-  <% end %>
+<div class="row collapse" id="feed-content">
+  <div class="large-9 medium-9 small-12 columns">
+    <% if @feed_items.any? %>
+      <%= render partial: 'shared/feed_item', collection: @feed_items %>
+    <% end %>
+  </div>
+  <div class="large-3 medium-3 show-for-medium-up columns text-center" id="sidebar-on-feed">
+    <div class="row" id="user-details-container-on-feed">
+      <div id="user-images-container-on-feed">
+        <%= image_tag current_user.cover.url(:cover_size), id: 'user-cover-pic' %>
+        <%= image_tag current_user.avatar.url(:medium), id: 'user-profile-pic' %>
+      </div>
+      <h4>
+        <%= current_user.name %>
+        <small> @<%= current_user.username %></small>
+        <br>
+        <em><small><b><%= current_user.about_me.truncate(50) if current_user.about_me %></b></small></em>
+      </h4>
+      <div id="user-stats-container-on-feed">
+        <p>
+          <%= pluralize current_user.subscribers.count, 'subscriber' %>
+          &nbsp;
+          <%= pluralize current_user.books.count, 'gif' %>
+          &nbsp;
+          <%= pluralize current_user.total_view_count, 'view' %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="text-center">
