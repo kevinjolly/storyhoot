@@ -78,7 +78,7 @@ class UsersController < ApplicationController
 		if @user = User.load_from_activation_token(params[:id])
 		  @user.activate!
 		  redirect_to login_path
-		  flash[:notice] = 'Your account has been activated successfully. You can to Storyhoot now.'
+		  flash[:notice] = 'Your account has been activated successfully. You can post gifs now.'
 		else
 		  not_authenticated
 		end
