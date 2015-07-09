@@ -30,7 +30,14 @@
 				<a href="" class="share-button"><i class="fi-share"></i></a>
 			</div>
 			<div class="option social-buttons">
-				<%= social_share_button_tag(feed_item.title) %>
+				<%= social_share_button_tag(
+					feed_item.title,
+					via: "storyhoot",
+					url: "http://storyhoot.com/story/#{feed_item.id}",
+					image: "#{asset_path feed_item.cover.url(:medium)}",
+					desc: "Share your story with the world"
+					)
+				%>
 			</div>
 		</div>
 		<div class="clearfix">
