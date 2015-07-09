@@ -245,42 +245,55 @@ div#feed-content {
 			color: rgb(37, 25, 25);
 		}
 
-		div#user-details-container-on-feed {
+		position: fixed;
+		width: 25%;
+		background: white;
+		border-radius: 10px;
+		padding: 10px;
+		margin: 10px 0;
 
-			position: fixed;
-			background: white;
-			width: 25%;
-			border-radius: 10px;
-			padding: 10px;
-			margin: 10px 0;
-
-			div#user-images-container-on-feed {
+		div#user-images-container-on-feed {
+			position: relative;
+			img#user-cover-pic{
 				position: relative;
-				img#user-cover-pic{
-					position: relative;
-					width: 100%;
-					border-radius: 5px;
-				}
-				img#user-profile-pic{
-					position: absolute;
-					left: 20px;
-					bottom: 0;
-					width: 70px;
-					border-radius: 5px;
-				}
+				width: 100%;
+				border-radius: 5px;
 			}
-
-			div#user-stats-container-on-feed {
-				padding: 5px 0;
-				p {
-					color: #1fa686;
-					font-size: 0.9rem;
-				}
+			img#user-profile-pic{
+				position: absolute;
+				left: 20px;
+				bottom: 0;
+				width: 70px;
+				border-radius: 5px;
 			}
-
 		}
-		
+
+		div#user-stats-container-on-feed {
+			padding: 5px 0;
+			p {
+				color: #1fa686;
+				font-size: 0.9rem;
+			}
+		}
+
+		div#who-to-follow {
+			border-top: 1px solid #1fa686;
+			padding: 1%;
+			p {
+				display: none;
+			}
+			h5 {
+				font-size: 0.8rem;
+			}
+			input.button.radius.tiny {
+				padding: 0;
+				color: #1fa686;
+				background: white;
+			}
+		}
+
 	}
+	
 }
 
 .tabs{

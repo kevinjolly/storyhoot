@@ -4,8 +4,9 @@
       <%= render partial: 'shared/feed_item', collection: @feed_items %>
     <% end %>
   </div>
-  <div class="large-3 medium-3 show-for-medium-up columns text-center" id="sidebar-on-feed">
-    <div class="row" id="user-details-container-on-feed">
+  <div class="large-3 medium-3 show-for-medium-up columns text-center">
+
+    <div id="sidebar-on-feed">
       <div id="user-images-container-on-feed">
         <%= image_tag current_user.cover.url(:cover_size), id: 'user-cover-pic' %>
         <%= image_tag current_user.avatar.url(:medium), id: 'user-profile-pic' %>
@@ -16,6 +17,7 @@
         <br>
         <em><small><b><%= current_user.about_me.truncate(50) if current_user.about_me %></b></small></em>
       </h4>
+
       <div id="user-stats-container-on-feed">
         <p>
           <%= pluralize current_user.subscribers.count, 'subscriber' %>
@@ -25,8 +27,21 @@
           <%= pluralize current_user.total_view_count, 'view' %>
         </p>
       </div>
+
+      <div class="row" id="who-to-follow">
+
+        <h4>Who to follow</h4>
+
+        <% @users_to_follow.each do |user| %>
+          <% if user != current_user %>
+            <%= render 'shared/user', user: user %>
+          <% end %>
+        <% end %>
+
+      </div>
     </div>
   </div>
+
 </div>
 
 <div class="text-center">
