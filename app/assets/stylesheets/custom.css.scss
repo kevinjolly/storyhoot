@@ -80,6 +80,15 @@ div.book-show-page {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	padding: 5px;
+
+	img {
+		border-radius: 10px;
+	}
+
+	input {
+		border-radius: 5px;
+	}
+
 	.username {
 		a{
 			font-weight: bold;
@@ -100,6 +109,7 @@ div.book-show-page {
 	div.gif-container {
 		background: white;
 		padding: 10px;
+		border-radius: 10px;
 	}
 
 	div.options-container {
@@ -130,6 +140,7 @@ div.book-show-page {
 	}
 	div.comments-section {
 		padding: 10px;
+		border-radius: 10px;
 		border: 1px solid rgb(231,231,235);
 		img {
 			padding: 5px;
