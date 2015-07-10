@@ -8,5 +8,11 @@ class StaticPagesController < ApplicationController
       redirect_to feed_path
     end
   end
+
+  def about
+  end
+
+  def contact
+  end
   
 end
