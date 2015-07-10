@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   skip_before_filter :require_login
 
-  layout 'landing'
+  layout 'splash'
 
   def home
     if current_user

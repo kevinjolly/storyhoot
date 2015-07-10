@@ -2,7 +2,7 @@ class PasswordResetsController < ApplicationController
 
   skip_before_filter :require_login
 
-  layout 'landing'
+  layout 'splash'
 
   def new
   end
