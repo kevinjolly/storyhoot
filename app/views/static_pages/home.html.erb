@@ -1,29 +1,10 @@
-<div class="splash-background"></div>
+<h1>
+  <%= image_tag "logo_storyhoot.png", alt: "Storyhoot" %>
+</h1>
 
-<div class="splash-section">
+<h2>
+  Share <strong>your story</strong> with the world.
+</h2>
 
-  <div class="splash-inner-section text-center">
-    <h1>
-      <%= image_tag "logo_storyhoot.png", alt: "Storyhoot" %>
-    </h1>
-
-    <h2>
-      Share <strong>your story</strong> with the world.
-    </h2>
-
-    <%= link_to "Continue with Facebook", auth_at_provider_path(:provider => :facebook), class: 'splash-button ext-facebook' %>
-    <%= link_to "Sign up with email", login_path, class: 'splash-button ext-inverse' %>
-  </div>
-
-</div>
-
-<div class="splash-header">
-
-  <%= link_to 'About', about_path %>
-  <%= link_to 'Contact', contact_path %>
-
-  <div class="right">
-    <%= link_to 'Log in', login_path %>
-  </div>
-
-</div>
+<%= link_to "Continue with Facebook", auth_at_provider_path(:provider => :facebook), class: 'splash-button ext-facebook' %>
+<%= link_to "Sign up with email", login_path, class: 'splash-button ext-inverse' %>

@@ -18,22 +18,8 @@
 
   <body>
     <%= render 'shared/notices' %>
-
-    <div class="page-splash">
-      <div class="splash-background"></div>
-      <div class="splash-section">
-        <div class="splash-inner-section text-center">
-          <%= yield %>
-        </div>
-      </div>
-
-      <div class="splash-header show-for-medium-up">
-        <%= link_to 'About', about_path %>
-        <%= link_to 'Contact', contact_path %>
-        <div class="right">
-          <%= link_to 'Log in', login_path %>
-        </div>
-      </div>
+    <div class="page-plain">
+      <%= yield %>
     </div>
     <%= javascript_include_tag "application" %>
   </body>
