@@ -37,7 +37,7 @@ if $('#gif-upload-container').length
       fd.append 'book[category_id]', $('#gif-category').val()
 
       $.ajax(
-        url: "/books"
+        url: "/story"
         type: "POST"
         data: fd
         processData: false
