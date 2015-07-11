@@ -6,8 +6,9 @@ class StaticPagesController < ApplicationController
   def home
     if current_user
       redirect_to feed_path
+    else
+      render :layout => 'splash'
     end
-    render :layout => 'splash'
   end
 
   def about
