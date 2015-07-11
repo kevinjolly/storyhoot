@@ -4,27 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Welcome to Storyhoot</title>
+    <title>Storyhoot! Share your story with the world</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Share your story with the world">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <%= render 'shared/notices' %>
-    <div class="landing-template">
+    <div class="page-plain">
       <%= yield %>
     </div>
-    <% unless current_user %>
-      <footer class="landing-footer text-center">
-        <%= link_to 'Jobs', '#' %>
-        <%= link_to 'Support', support_path %>
-        <%= link_to 'Privacy', '#' %>
-        <%= link_to 'Terms', '#' %>
-      </footer>
-    <% end %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Storyhoot</title>
+    <title>Storyhoot! Share your story with the world</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Share your story with the world">
@@ -13,27 +13,30 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <header id="topbar">
-      <div class="show-for-large-up">
-        <%= render 'shared/navbar' %>
+    <%= render 'shared/notices' %>
+
+    <div class="page-splash">
+      <div class="splash-background"></div>
+      <div class="splash-section">
+        <div class="splash-inner-section text-center">
+          <%= yield %>
+        </div>
       </div>
-      <div class="hide-for-large-up">
-        <%= render 'shared/navbar_mobile' %>
+
+      <div class="splash-header show-for-medium-up">
+        <%= link_to 'About', about_path %>
+        <%= link_to 'Contact', contact_path %>
+        <div class="right">
+          <%= link_to 'Log in', login_path %>
+        </div>
       </div>
-    </header>
-    <main>
-      <%= render 'shared/notices' %>
-      <%= yield %>
-      <%= render 'shared/footer' unless current_user %>
-      <div class='hide-for-medium-up'>
-        <%= render 'shared/bottom_navbar' %>
-      </div>
-    </main>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -1,0 +1,34 @@
+<div class="page-static-general">
+  <header>
+
+  </header>
+
+  <section class="page-about text-center">
+    <section class="section-header">
+      <%= image_tag 'about-image-1.png', width: '500' %>
+      <h2>Looks like you were curious to know what this was all about!</h2>
+      <h3>Here's how it works..</h3>
+    </section>
+    <div class="row">
+      <div class="large-4 medium-4 columns about-tip">
+        <%= image_tag '2.png' %>
+        <h4>Create a GIF</h4>
+        <p>Use two or more photos or a video to create a GIF. You can also directly upload a GIF</p>
+      </div>
+
+      <div class="large-4 medium-4 columns about-tip">
+        <%= image_tag '1.png' %>
+        <h4>A profile page</h4>
+        <p>Build a customised profile. Show off your GIFs on facebook and twitter</p>
+      </div>
+
+      <div class="large-4 medium-4 columns about-tip">
+        <%= image_tag '3.png' %>
+        <h4>Customised feed</h4>
+        <p>Your home page is constructed from GIFs created by users you've subscribed to.</p>
+      </div>
+    </div>
+
+    <%= link_to "Join Storyhoot now", new_user_path, class: 'ext-cta' %>
+  </section>
+</div>

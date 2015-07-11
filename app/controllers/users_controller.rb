@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	skip_before_filter :require_login, only: [:new, :create, :activate]
 	
-	layout 'landing', :only => [:new, :create, :complete_facebook_sign_up]
+	layout 'splash', :only => [:new, :create, :complete_facebook_sign_up]
 
 	def index
 		@users = User.text_search(params[:query], params[:page])
