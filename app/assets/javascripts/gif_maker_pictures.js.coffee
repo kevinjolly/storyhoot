@@ -57,7 +57,7 @@ if $('#gif-maker-pictures-container').length
         animatedImage = document.createElement('img')
         animatedImage.src = image
         animatedImage.id = 'gif-completed'
-        $('#created-gif-container').empty
+        $('#created-gif-container').html("")
         $('#created-gif-container').append animatedImage
         $('#save-gif-form').css('display', 'block')
         $('#loading-indicator').css('display', 'none')
@@ -80,6 +80,8 @@ if $('#gif-maker-pictures-container').length
               confirmButtonColor: "#1fa686"
             return
 
+          $('#loading-indicator').css('display', 'block')
+
           fd = new FormData
           fd.append 'book[cover]', file
           fd.append 'book[title]', $('#gif-title').val()
@@ -91,6 +93,8 @@ if $('#gif-maker-pictures-container').length
             data: fd
             processData: false
             contentType: false
+          ).done(->
+            $('#loading-indicator').css('display', 'none')
           )
     
 

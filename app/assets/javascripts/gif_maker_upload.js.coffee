@@ -31,6 +31,8 @@ if $('#gif-upload-container').length
           confirmButtonColor: "#1fa686"
         return
 
+      $('#loading-indicator').css('display', 'block')
+
       fd = new FormData
       fd.append 'book[cover]', uploadedFile
       fd.append 'book[title]', $('#gif-title').val()
@@ -42,6 +44,8 @@ if $('#gif-upload-container').length
         data: fd
         processData: false
         contentType: false
+      ).done(->
+        $('#loading-indicator').css('display', 'none')
       )
     
 
