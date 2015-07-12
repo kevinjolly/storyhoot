@@ -260,65 +260,63 @@ div#feed-content {
 			height: 120px;
 			overflow-y: scroll;
 		}
+	}	
+}
+
+div#sidebar-on-feed {
+
+	h4 {
+		color: rgb(37, 25, 25);
 	}
 
-	div#sidebar-on-feed {
+	position: fixed;
+	width: 25%;
+	background: white;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px 0;
 
-		h4 {
-			color: rgb(37, 25, 25);
-		}
-
-		position: fixed;
-		width: 25%;
-		background: white;
-		border-radius: 10px;
-		padding: 10px;
-		margin: 10px 0;
-
-		div#user-images-container-on-feed {
+	div#user-images-container-on-feed {
+		position: relative;
+		img#user-cover-pic{
 			position: relative;
-			img#user-cover-pic{
-				position: relative;
-				width: 100%;
-				border-radius: 5px;
-			}
-			img#user-profile-pic{
-				position: absolute;
-				left: 20px;
-				bottom: 0;
-				width: 70px;
-				border-radius: 5px;
-			}
+			width: 100%;
+			border-radius: 5px;
 		}
-
-		div#user-stats-container-on-feed {
-			padding: 5px 0;
-			p {
-				background: #1fa686;
-				padding: 2px;
-				border-radius: 5px;
-				color: white;
-				font-size: 0.9rem;
-				font-weight: bold;
-			}
+		img#user-profile-pic{
+			position: absolute;
+			left: 20px;
+			bottom: 0;
+			width: 70px;
+			border-radius: 5px;
 		}
-
-		div#who-to-follow {
-			border-top: 1px dotted #1fa686;
-			padding: 1%;
-			p {
-				display: none;
-			}
-			h5 {
-				font-size: 0.8rem;
-			}
-			input.button.radius.tiny {
-				padding: 2px;
-			}
-		}
-
 	}
-	
+
+	div#user-stats-container-on-feed {
+		padding: 5px 0;
+		p {
+			background: #1fa686;
+			padding: 2px;
+			border-radius: 5px;
+			color: white;
+			font-size: 0.9rem;
+			font-weight: bold;
+		}
+	}
+
+	div#who-to-follow {
+		border-top: 1px dotted #1fa686;
+		padding: 1%;
+		p {
+			display: none;
+		}
+		h5 {
+			font-size: 0.8rem;
+		}
+		input.button.radius.tiny {
+			padding: 2px;
+		}
+	}
 }
 
 .tabs{
