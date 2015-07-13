@@ -95,6 +95,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
+      :s3_protocol => 'http',
       :bucket => 'storyhoot-gif-uploads', 
       :access_key_id => ENV['AWS_ACCESS_KEY'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
