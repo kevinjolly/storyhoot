@@ -31,6 +31,13 @@ class BooksController < ApplicationController
 			book.user_id = current_user.id
 			book.save
 		end
+		respond_to do |format|
+			format.html do 
+				flash[:notice] = "Your GIF has been successfully saved!"
+				redirect_to current_user
+			end
+			format.js
+		end
 	end
 
 	def show
