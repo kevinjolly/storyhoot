@@ -31,15 +31,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-<%= form_for @book, :html => {:multipart => true} do |f| %>
-  <%= f.text_field :title, placeholder: 'Write a title for your GIF in about 20 words' %>
-  <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ]} , prompt: "Select a Category" %>
-  <%= f.label 'Upload a GIF here!' %>
-  <%= f.file_field :cover %>
-  <%= f.submit 'Save GIF', class: 'button tiny radius' %>
-<% end %>
