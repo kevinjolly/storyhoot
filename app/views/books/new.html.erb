@@ -1,6 +1,6 @@
 <div class="row collapse" id="new-gif-page">
   <h1 class="text-center">How would you like to create your GIF?</h1>
-  <div class="large-6 medium-6 small-12 columns text-center gif-type-icon-container">
+  <div class="large-4 medium-4 small-12 columns text-center gif-type-icon-container">
     <%= link_to gif_maker_pictures_path do %>
       <span>
         <i class="fi-camera"></i>
@@ -10,7 +10,7 @@
       </span>
     <% end %>
   </div>
-  <div class="large-6 medium-6 small-12 columns text-center gif-type-icon-container">
+  <div class="large-4 medium-4 small-12 columns text-center gif-type-icon-container">
     <%= link_to gif_maker_video_path do %>
       <span>
         <i class="fi-video"></i>
@@ -20,15 +20,14 @@
       </span>
     <% end %>
   </div>
-
-  <h1 class="text-center">Or just upload one?</h1>
-  <div class="large-6 large-centered medium-8 medium-centered columns custom-form">
-    <%= form_for @book, :html => {:multipart => true} do |f| %>
-      <%= f.text_field :title, placeholder: 'Write a title for your GIF in about 20 words' %>
-      <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ]} , prompt: "Select a Category" %>
-      <%= f.label 'Upload a GIF here!' %>
-      <%= f.file_field :cover %>
-      <%= f.submit 'Save GIF', class: 'button tiny radius' %>
+  <div class="large-4 medium-4 small-12 columns text-center gif-type-icon-container">
+    <%= link_to gif_upload_path do %>
+      <span>
+        <i class="fi-page"></i>
+        <p>
+          Just upload one
+        </p>
+      </span>
     <% end %>
   </div>
 </div>
