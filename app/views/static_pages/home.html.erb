@@ -8,3 +8,13 @@
 
 <%= link_to "Continue with Facebook", auth_at_provider_path(:provider => :facebook), class: 'splash-button ext-facebook' %>
 <%= link_to "Sign up with email", login_path, class: 'splash-button ext-inverse' %>
+
+<div class="splash-header">
+  <div class="left">
+    <%= link_to 'About', about_path %>
+    <%= link_to 'Contact', contact_path %>
+  </div>
+  <div class="right">
+    <%= link_to 'Log in', login_path %>
+  </div>
+</div>
