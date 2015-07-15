@@ -24,8 +24,7 @@ class BooksController < ApplicationController
 
 	def create
 		if current_user.activation_state != 'active'
-			redirect_to current_user
-			flash[:notice] = "You have to confirm your mail to post gifs"
+			render 'create_fail'
 		else
 			book = Book.new(book_params);
 			book.user_id = current_user.id
