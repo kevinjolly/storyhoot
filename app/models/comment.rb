@@ -15,7 +15,7 @@ class Comment < ActiveRecord::Base
           if self.user_id != user.id
             Bulletin.create(user_id: user.id,
                             content: "#{self.user.username.capitalize} mentioned you in a comment.",
-                            url: "/books/#{self.book.id}",
+                            url: "/story/#{self.book.id}",
                             notifier: self.user.id)
           end
         end

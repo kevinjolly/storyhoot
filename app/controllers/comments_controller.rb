@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment Saved."
       if current_user != @comment.book.user
         Bulletin.create(user_id: @comment.book.user.id,
-                        content: "#{current_user.username.capitalize} commented on your book \' #{@comment.book.title} \'.",
-                        url: "/books/#{@comment.book_id}",
+                        content: "#{current_user.username.capitalize} commented on your story \' #{@comment.book.title} \'.",
+                        url: "/story/#{@comment.book_id}",
                         notifier: current_user.id)
       end
     else
