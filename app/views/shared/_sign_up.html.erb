@@ -1,9 +1,8 @@
 <h3 class="text-center">Sign up with email</h3>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <div class="alert">
-      <p><%= pluralize(@user.errors.count, 'error') %></p>
-      <ul>
+    <div class="alert text-left">
+      <ul class="no-bullet">
         <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
