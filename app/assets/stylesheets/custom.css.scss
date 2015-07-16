@@ -43,7 +43,7 @@ i.extra-large {font-size: 1.6rem; }
 	padding-top: 20px;
 }
 
-.notice{
+.notice {
 	width: 100%;
 	padding: 10px;
 	border-top: 1px solid #1fa686;
@@ -55,7 +55,13 @@ i.extra-large {font-size: 1.6rem; }
 	.close-notice {
 		font-size: 13px;
 	}
+}
 
+.alert {
+	li {
+		font-size: 0.8rem;
+		font-weight: 300;
+	}
 }
 
 

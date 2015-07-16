@@ -24,7 +24,7 @@
 						<% if @user.errors.any? %>
 						  <div class="alert">
 						    <p><%= pluralize(@user.errors.count, 'error') %></p>
-						    <ul>
+						    <ul class="no-bullet">
 						      <% @user.errors.full_messages.each do |msg| %>
 						        <li><%= msg %></li>
 						      <% end %>
