@@ -1,7 +1,7 @@
 class SupportTicketsController < ApplicationController
 
   skip_before_filter :require_login
-  layout 'spash'
+  layout 'plain'
 
   def new
     @support_ticket = SupportTicket.new

@@ -2,13 +2,12 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'what-is-storyhoot', to: 'static_pages#about', :as => :about
-  get 'contact', to: 'static_pages#contact', :as => :contact
 
   resources :uploads, only: [:create, :destroy]
 
   get 'support_tickets/new'
   get 'support_tickets/create'
-  get 'support', to: 'support_tickets#new'
+  get 'contact', to: 'support_tickets#new', :as => :contact
 
   resources :books, path: '/story/' do
     member do

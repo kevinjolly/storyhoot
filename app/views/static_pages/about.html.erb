@@ -5,7 +5,7 @@
 
   <section class="page-about text-center">
     <section class="section-header">
-      <%= image_tag 'about-image-1.png', width: '500' %>
+      <%= link_to image_tag('about-image-1.png', width: '500'), root_path %>
       <h2>Looks like you were curious to know what this was all about!</h2>
       <h3>Here's how it works..</h3>
     </section>
@@ -29,6 +29,6 @@
       </div>
     </div>
 
-    <%= link_to "Join Storyhoot now", new_user_path, class: 'ext-cta' %>
+    <%= link_to "Join Storyhoot now", new_user_path, class: 'ext-cta' unless current_user %>
   </section>
 </div>
