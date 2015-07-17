@@ -116,6 +116,36 @@ div.book-show-page {
 		background: white;
 		padding: 10px;
 		border-radius: 10px;
+
+		img {
+			border-radius: 0px;
+			margin: 0 auto;
+			display: block;
+		}
+
+		.square {
+	    position: relative;
+	    width: 100%;
+	    padding-bottom: 100%;
+	    overflow: hidden;
+		}
+		.content {
+	    position: absolute;
+	    height: 100%;
+	    width: 100%;
+		}
+		.table {
+	    display: table;
+	    height: 100%;
+	    width: 100%;
+		}
+		.table-cell {
+	    display: table-cell;
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 100%;
+	    background: rgb(242, 242, 242);
+		}
 	}
 
 	div.options-container {
@@ -207,10 +237,41 @@ div#feed-content {
 			color: #5E6060;
 		}
 
-		div.gif-container {
-			background: white;
-			padding: 10px;
-		}
+			div.gif-container {
+				background: white;
+				padding: 10px;
+				border-radius: 10px;
+
+				img {
+					border-radius: 0px;
+					margin: 0 auto;
+					display: block;
+				}
+
+				.square {
+				    position: relative;
+				    width: 100%;
+				    padding-bottom: 100%;
+				    overflow: hidden;
+				}
+				.content {
+				    position: absolute;
+				    height: 100%;
+				    width: 100%;
+				}
+				.table {
+				    display: table;
+				    height: 100%;
+				    width: 100%;
+				}
+				.table-cell {
+				    display: table-cell;
+				    vertical-align: middle;
+				    height: 100%;
+				    width: 100%;
+				    background: #273A4D;
+				}
+			}
 
 		div.options-container {
 			color: #1fa686;

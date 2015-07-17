@@ -14,7 +14,15 @@
 		</div>
 	</div>
 	<div class="large-8 medium-8 columns gif-container">
-		<%= link_to image_tag(feed_item.cover.url(:medium)), feed_item %>
+		<div class="square">
+			<div class="content">
+				<div class="table">
+					<div class="table-cell">
+						<%= link_to image_tag(feed_item.cover.url), feed_item %>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="options-container text-right">
 			<div class="option likes-container" id="book-<%= feed_item.id %>-likes">
 				<% if current_user.voted_as_when_voted_for feed_item %>

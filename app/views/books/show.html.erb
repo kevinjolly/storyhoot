@@ -14,7 +14,15 @@
 		</div>
 	</div>
 	<div class="large-6 columns gif-container">
-		<%= link_to image_tag(@book.cover.url(:medium)), @book %>
+		<div class="square">
+			<div class="content">
+				<div class="table">
+					<div class="table-cell">
+						<%= link_to image_tag(@book.cover.url), @book %>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="options-container text-right">
 			<div class="option likes-container" id="book-<%= @book.id %>-likes">
 				<% if current_user.voted_as_when_voted_for @book %>
