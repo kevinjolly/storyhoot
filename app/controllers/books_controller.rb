@@ -54,7 +54,7 @@ class BooksController < ApplicationController
 		if @book.user.id != current_user.id
 			Bulletin.create(user_id: @book.user.id,
 											content: "#{current_user.username.capitalize} liked your book \' #{@book.title} \'.",
-											url: "/books/#{@book.id}",
+											url: "/story/#{@book.id}",
 											notifier: current_user.id)
 		end
 		respond_to do |format|
