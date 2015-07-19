@@ -3,14 +3,14 @@ body {
 }
 
 footer {
-	&.normal-layout {
-		padding-bottom: 20px;
-		background: #DDDDDD;
-		a {
-			margin: 5px;
-		}
+	clear: both;
+	padding-bottom: 15px;
+	padding-top: 5px;
+	a {
+		margin: 5px;
+		color: #1fa686;
+		font-size: 0.9rem;
 	}
-
 }
 
 i.small  { font-size: 0.8rem; }
