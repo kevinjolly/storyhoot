@@ -56,10 +56,10 @@
 		<% if @books.any? %>
 
 			<% @books.each do |book| %>
-				<div class="large-3 medium-4 small-12 columns end">
+				<div class="large-2 medium-3 small-6 columns end">
 					<%= div_for book do %>
 						<div class="book-container">
-							<%= link_to image_tag(book.cover.url(:medium)), book %>
+							<%= link_to image_tag(book.cover.url(:thumb)), book %>
 							<div class="clearfix options-profile">
 									<div class="left likes-container" id="book-<%= book.id %>-likes">
 										<% if current_user.voted_as_when_voted_for book %>
