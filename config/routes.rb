@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'what-is-storyhoot', to: 'static_pages#about', :as => :about
+  get 'privacy', to: 'static_pages#privacy', :as => :privacy
+  get 'terms', to: 'static_pages#terms', :as => :terms
 
   resources :uploads, only: [:create, :destroy]
 

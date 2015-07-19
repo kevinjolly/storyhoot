@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   skip_before_filter :require_login
 
-  layout 'plain', :only => [:about, :contact]
+  layout 'plain'
 
   def home
     if current_user
@@ -14,7 +14,10 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def contact
+  def privacy
+  end
+
+  def terms
   end
   
 end
