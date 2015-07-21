@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 	has_many :reverse_subscriptions, :foreign_key => 'subscriber_id', :class_name => 'Subscription'
 	has_many :authors, through: :reverse_subscriptions
 
-	validates :username, uniqueness: { case_sensitive: false} , presence: true, format: { with: /\A[\w]*\z/i }
+	validates :username, uniqueness: { case_sensitive: false} , presence: true, format: { with: /\A[\w\-_.]*\z/i }
 	validates :email, uniqueness: true, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 	validates :password, presence: true, length: { minimum: 6 }, if: :new_user?
 
