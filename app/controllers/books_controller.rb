@@ -73,7 +73,7 @@ class BooksController < ApplicationController
 	end
 
 	def discover
-		@books = Book.order('view_count DESC').limit(24)
+		@books = Book.order('view_count DESC').limit(48)
 	end
 
 	def gif_maker_pictures

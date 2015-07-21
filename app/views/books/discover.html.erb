@@ -1,7 +1,7 @@
 <div class="row-collapse" id="discover-page">
   <% @books.each do |book| %>
-    <div class="large-3 medium-4 small-4 columns end">
-      <%= link_to image_tag(book.cover.url(:medium)), book %>
+    <div class="large-1 medium-2 small-3 columns end">
+      <%= link_to image_tag(book.cover.url(:thumb)), book %>
     </div>
   <% end %>
 </div>
