@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 		user = current_user
 		if user.update_attributes(username: params[:username])
 			flash[:notice] = "You have logged in successfully from facebook"
-			redirect_to user
+			redirect_to find_authors_path
 		else
 			flash[:notice] = "Seems like the username already exists."
 			redirect_to complete_facebook_sign_up_path
