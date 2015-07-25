@@ -43,9 +43,8 @@ class User < ActiveRecord::Base
 		},
 		:default_url => "ProfilePic.png",
 		:convert_options => {
-			:medium => "-interlace plane",
+			:all => "-interlace plane",
 			:medium => "-quality 85",
-			:thumb => "-interlace plane",
 			:thumb => "-quality 70"
 		}
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
