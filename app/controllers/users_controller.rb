@@ -97,7 +97,7 @@ class UsersController < ApplicationController
 		@user_now = current_user
 		@feed_items = @user_now.feed.paginate(:page => params[:page], :per_page => 5)
 	  @comment = Comment.new
-	  @users_to_follow = User.where.not(id: @user_now.author_ids).order('total_view_count DESC').limit(6)
+	  @users_to_follow = User.where.not(id: @user_now.author_ids).order('books_count DESC, total_view_count DESC').limit(6)
 	end
 
 	def find_authors
