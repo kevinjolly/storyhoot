@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy', :as => :privacy
   get 'terms', to: 'static_pages#terms', :as => :terms
 
-  get 'support_tickets/new'
-  get 'support_tickets/create'
-  get 'contact', to: 'support_tickets#new', :as => :contact
-
   resources :books, path: '/story/' do
     member do
       put "like", to: 'books#like'
@@ -23,10 +19,13 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :subscriptions
   resources :comments, only: [:new, :create, :destroy]
-  resources :bulletins, only: [:index]
-  resources :support_tickets, only: [:new, :create]
-  get 'notifications', to: 'bulletins#index'
   resources :hashtags, only: [:index]
+
+  resources :bulletins, only: [:index]
+  get 'notifications', to: 'bulletins#index'
+
+  resources :support_tickets, only: [:new, :create]
+  get 'contact', to: 'support_tickets#new', :as => :contact
 
   resources :users, path: '/u' do
     member do
