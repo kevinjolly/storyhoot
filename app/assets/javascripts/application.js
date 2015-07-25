@@ -19,14 +19,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-	$('.report_link').click(function(){
-		var div_to_toggle = this.id;
-		var index = div_to_toggle.lastIndexOf("_");
-		var id = "#" + div_to_toggle.substr(0, index);
-		$(id).toggle('slide');
-		return false;
-	});
-});
-
 $(function(){ $(document).foundation(); });

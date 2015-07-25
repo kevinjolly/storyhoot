@@ -19,10 +19,9 @@ Rails.application.routes.draw do
   get 'gif-maker-video', to: 'books#gif_maker_video', :as => :gif_maker_video
   get 'gif-upload', to: 'books#gif_upload', :as => :gif_upload
   get 'discover', to: 'books#discover', :as => :discover
-  resources :categories, only: [:index, :show]
 
+  resources :categories, only: [:index, :show]
   resources :subscriptions
-  resources :reports, only: [:new, :create, :destroy]
   resources :comments, only: [:new, :create, :destroy]
   resources :bulletins, only: [:index]
   resources :support_tickets, only: [:new, :create]
