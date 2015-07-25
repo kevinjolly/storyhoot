@@ -57,9 +57,8 @@ class User < ActiveRecord::Base
 		},
 		:default_url => "CoverPic.png",
 		:convert_options => {
-			:cover_size => "-interlace plane",
+			:all => "-interlace plane",
 			:cover_size => "-quality 85",
-			:thumb => "-interlace plane",
 			:thumb => "-quality 75"
 		}
 	validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
