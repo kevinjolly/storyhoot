@@ -4,13 +4,25 @@ class Book < ActiveRecord::Base
 
 	acts_as_votable
 	is_impressionable :counter_cache => true, :column_name => :view_count, :unique => :all
+
 	belongs_to :user
 	belongs_to :category
 	has_many :comments, dependent: :destroy
 	has_many :hashtags, dependent: :destroy
+
 	validates :title, presence: true
 	validates :category, presence: true
-	has_attached_file :cover, :styles => { :thumb => "150x150#" }, :default_url => "BookCoverPic.png"
+
+	has_attached_file :cover,
+		:styles => {
+			:thumb => "150x150#"
+		},
+		:default_url => "BookCoverPic.png",
+		:convert_options => {
+			:thumb => "-interlace plane",
+			:thumb => "-layers optimize",
+			:thumb => "-quality 75"
+		}
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
 	searchkick

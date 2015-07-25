@@ -35,10 +35,33 @@ class User < ActiveRecord::Base
 
 	before_validation :prep_email
 	before_save :prep_username
-	has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "ProfilePic.png"
+
+	has_attached_file :avatar, 
+		:styles => {
+			:medium => "300x300#",
+			:thumb => "100x100#"
+		},
+		:default_url => "ProfilePic.png",
+		:convert_options => {
+			:medium => "-interlace plane",
+			:medium => "-quality 85",
+			:thumb => "-interlace plane",
+			:thumb => "-quality 70"
+		}
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-	has_attached_file :cover, :styles => { :cover_size => "1300x440#", :thumb => "100x100#" }, :default_url => "CoverPic.png"
+	has_attached_file :cover,
+		:styles => {
+			:cover_size => "1300x440#",
+			:thumb => "100x100#"
+		},
+		:default_url => "CoverPic.png",
+		:convert_options => {
+			:cover_size => "-interlace plane",
+			:cover_size => "-quality 85",
+			:thumb => "-interlace plane",
+			:thumb => "-quality 75"
+		}
 	validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
 	def to_param
@@ -59,10 +82,6 @@ class User < ActiveRecord::Base
 
 	def feed
 		Book.from_users_followed_by(self).order('created_at DESC')
-	end
-
-	def reported(book)
-		ReportedBook.find_by(book_id: book, user_id: self.id)
 	end
 
 	def send_password_reset
