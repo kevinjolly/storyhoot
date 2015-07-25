@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy', :as => :privacy
   get 'terms', to: 'static_pages#terms', :as => :terms
 
-  resources :uploads, only: [:create, :destroy]
-
   get 'support_tickets/new'
   get 'support_tickets/create'
   get 'contact', to: 'support_tickets#new', :as => :contact
