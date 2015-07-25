@@ -1,10 +1,37 @@
 Rails.application.routes.draw do
 
+  # Static Pages
   root 'static_pages#home'
   get 'what-is-storyhoot', to: 'static_pages#about', :as => :about
   get 'privacy', to: 'static_pages#privacy', :as => :privacy
   get 'terms', to: 'static_pages#terms', :as => :terms
 
+  # User routes
+  resources :users, path: '/u' do
+    member do
+      get :subscribers
+      get :activate
+    end
+  end
+  post 'users/change_password'
+  post 'users/change_username'
+  get 'feed', to: 'users#newsfeed'
+  get 'find', to: 'users#find_authors', :as => :find_authors
+  get 'complete-facebook-sign-up', to: 'users#complete_facebook_sign_up', :as => :complete_facebook_sign_up
+  post 'users/verify_account'
+
+  # Sessions  
+  resources :sessions, only: [:create, :destroy]
+  get 'login', to: 'sessions#new', :as => :login
+  post 'logout', to: 'sessions#destroy', :as => :logout
+
+  # Other sorcery submodule routes  
+  resources :password_resets
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+  # Books routes
   resources :books, path: '/story/' do
     member do
       put "like", to: 'books#like'
@@ -16,6 +43,7 @@ Rails.application.routes.draw do
   get 'gif-upload', to: 'books#gif_upload', :as => :gif_upload
   get 'discover', to: 'books#discover', :as => :discover
 
+  # Other resources
   resources :categories, only: [:index, :show]
   resources :subscriptions
   resources :comments, only: [:new, :create, :destroy]
@@ -26,28 +54,6 @@ Rails.application.routes.draw do
 
   resources :support_tickets, only: [:new, :create]
   get 'contact', to: 'support_tickets#new', :as => :contact
-
-  resources :users, path: '/u' do
-    member do
-      get :subscribers
-      get :activate
-    end
-  end
-  post 'users/change_password'
-  post 'users/change_username'
-  get 'feed', to: 'users#newsfeed'
-  get 'find-authors', to: 'users#find_authors', :as => :find_authors
-  get 'complete-facebook-sign-up', to: 'users#complete_facebook_sign_up', :as => :complete_facebook_sign_up
-  post 'users/verify_account'
-  
-  resources :sessions, only: [:create, :destroy]
-  get 'login', to: 'sessions#new', :as => :login
-  post 'logout', to: 'sessions#destroy', :as => :logout
-  
-  resources :password_resets
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
