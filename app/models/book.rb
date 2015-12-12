@@ -19,9 +19,7 @@ class Book < ActiveRecord::Base
 		},
 		:default_url => "BookCoverPic.png",
 		:convert_options => {
-			:all => "-interlace plane",
-			:thumb => "-layers optimize",
-			:thumb => "-quality 75"
+			:all => "-interlace plane"
 		}
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
