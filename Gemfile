@@ -37,6 +37,7 @@ gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'impressionist'
 gem 'twitter-text', '~> 1.11.0'
 gem 'social-share-button'
+gem 'mina'
 
 group :test, :development do
   gem 'rspec-rails'
