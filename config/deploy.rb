@@ -10,7 +10,8 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, '128.199.191.85'
+set :user, 'deploy'
+set :domain, '139.59.42.251'
 set :deploy_to, '/home/deploy/storyhoot'
 set :repository, 'git@bitbucket.org:prajwaldp/storyhoot.git'
 set :branch, 'master'
